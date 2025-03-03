@@ -3,10 +3,18 @@ function TodoList({ todolist }) {
     <div>
       <ul>
         {todolist.map((tasks, index) => (
-          <div>
-            <li key={index}>{tasks}</li>
-            <button>Edit</button>
-            <button>Remove</button>
+          <div className='flex flex-col justify-center items-center'>
+            <li key={index} className='text-2xl p-4'>
+              {tasks}
+            </li>
+            <div className='flex flex-row gap-2'>
+              <button className='bg-primary text-white py-2 px-6 rounded-3xl cursor-pointer '>
+                Edit
+              </button>
+              <button className='bg-primary text-white py-2 px-6 rounded-3xl cursor-pointer '>
+                Remove
+              </button>
+            </div>
           </div>
         ))}
       </ul>

@@ -34,6 +34,9 @@ function TodoForm() {
           </button>
         </div>
 
+        {tasks.length === 0 && (
+          <p className='flex justify-center opacity-50 mt-4'>No tasks...</p>
+        )}
         <TodoList todolist={tasks} />
       </div>
     </>
