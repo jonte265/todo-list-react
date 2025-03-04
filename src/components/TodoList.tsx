@@ -1,4 +1,4 @@
-function TodoList({ tasks, deleteTask }) {
+function TodoList({ tasks, deleteTask, completeTask }) {
   console.log('yoo:', tasks);
 
   return (
@@ -10,10 +10,17 @@ function TodoList({ tasks, deleteTask }) {
         >
           <div className='flex justify-center items-center gap-2'>
             <input
+              onChange={() => completeTask(index)}
               className='w-6 h-6 rounded-full appearance-none border-2 border-gray-400 checked:bg-secondary checked:border-gray-400 focus:outline-none cursor-pointer transition duration-200'
               type='checkbox'
             />
-            <h2 className='text-2xl'>{task.todo}</h2>
+            <h2
+              className={`text-xl ${
+                task.done ? 'line-through text-gray-500' : ''
+              }`}
+            >
+              {task.todo}
+            </h2>
           </div>
           <p className='text-gray-500'>{task.date}</p>
 
