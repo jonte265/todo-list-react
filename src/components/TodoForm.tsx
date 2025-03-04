@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import TodoList from './TodoList';
 
-function TodoForm() {
+function TodoForm({ addTask, tasks }) {
   const [newTask, setNewTask] = useState('');
   const [newDate, setNewDate] = useState('');
-  const [tasks, setTasks] = useState([]);
 
   function handleInput(event) {
     setNewTask(event.target.value);
@@ -14,7 +13,7 @@ function TodoForm() {
     setNewDate(event.target.value);
   }
 
-  function addTask(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
     const newTodoTask = {
@@ -24,7 +23,8 @@ function TodoForm() {
       id: Date.now(),
     };
 
-    setTasks([...tasks, newTodoTask]);
+    //Send task up to home state
+    addTask(newTodoTask);
     setNewTask('');
     setNewDate('');
   }
@@ -33,7 +33,11 @@ function TodoForm() {
     <>
       <div>
         <div className='flex justify-center p-4'>
-          <form className='flex flex-col gap-6' action='' onSubmit={addTask}>
+          <form
+            className='flex flex-col gap-6'
+            action=''
+            onSubmit={handleSubmit}
+          >
             <input
               className='bg-background rounded-4xl shadow p-4 w-3xs transition-all duration-75'
               type='text'
@@ -53,7 +57,7 @@ function TodoForm() {
               type='submit'
               className='bg-secondary py-4 px-8 rounded-4xl cursor-pointer ml-2 hover:opacity-80 hover:scale-105 active:opacity-60 active:scale-95 transition-all duration-75'
             >
-              Add task
+              ➕ Add task
             </button>
           </form>
         </div>
@@ -61,7 +65,6 @@ function TodoForm() {
         {tasks.length === 0 && (
           <p className='flex justify-center opacity-50 mt-4'>No tasks...</p>
         )}
-        <TodoList todolist={tasks} />
       </div>
     </>
   );
