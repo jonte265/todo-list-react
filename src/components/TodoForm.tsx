@@ -3,35 +3,58 @@ import TodoList from './TodoList';
 
 function TodoForm() {
   const [newTask, setNewTask] = useState('');
+  const [newDate, setNewDate] = useState('');
   const [tasks, setTasks] = useState([]);
 
   function handleInput(event) {
     setNewTask(event.target.value);
   }
 
-  function addTask() {
-    setTasks([...tasks, newTask]);
+  function handleDate(event) {
+    setNewDate(event.target.value);
+  }
+
+  function addTask(e) {
+    e.preventDefault();
+
+    const newTodoTask = {
+      todo: newTask,
+      date: newDate,
+      id: Date.now(),
+    };
+
+    setTasks([...tasks, newTodoTask]);
     setNewTask('');
+    setNewDate('');
   }
 
   return (
     <>
       <div>
         <div className='flex justify-center p-4'>
-          <input
-            className='bg-background rounded-4xl shadow p-4 w-3xs transition-all duration-75'
-            type='text'
-            placeholder='Enter task...'
-            required
-            value={newTask}
-            onChange={handleInput}
-          />
-          <button
-            onClick={addTask}
-            className='bg-secondary py-4 px-8 rounded-4xl cursor-pointer ml-2 hover:opacity-80 hover:scale-105 active:opacity-60 active:scale-95 transition-all duration-75'
-          >
-            Add task
-          </button>
+          <form className='flex flex-col gap-6' action='' onSubmit={addTask}>
+            <input
+              className='bg-background rounded-4xl shadow p-4 w-3xs transition-all duration-75'
+              type='text'
+              placeholder='Enter task...'
+              required
+              value={newTask}
+              onChange={handleInput}
+            />
+            <input
+              className='bg-background rounded-4xl shadow p-4 w-3xs transition-all duration-75 '
+              type='date'
+              required
+              value={newDate}
+              onChange={handleDate}
+            />
+            <button
+              type='submit'
+              className='bg-secondary py-4 px-8 rounded-4xl cursor-pointer ml-2 hover:opacity-80 hover:scale-105 active:opacity-60 active:scale-95 transition-all duration-75'
+            >
+              Add task
+            </button>
+          </form>
         </div>
 
         {tasks.length === 0 && (
