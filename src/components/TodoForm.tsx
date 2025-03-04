@@ -20,6 +20,7 @@ function TodoForm() {
     const newTodoTask = {
       todo: newTask,
       date: newDate,
+      done: false,
       id: Date.now(),
     };
 
