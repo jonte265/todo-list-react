@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import TodoList from './TodoList';
 
 function TodoForm({ addTask, tasks }) {
   const [newTask, setNewTask] = useState('');
@@ -63,7 +62,7 @@ function TodoForm({ addTask, tasks }) {
         </div>
 
         {tasks.length === 0 && (
-          <p className='flex justify-center opacity-50 mt-4'>No tasks...</p>
+          <p className='flex justify-center opacity-50 mt-4'>No tasks</p>
         )}
       </div>
     </>

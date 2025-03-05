@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <footer className='bg-background p-4 flex justify-center'>
-      <p>Copyright 2025</p>
+    <footer className='bg-background p-40 flex justify-center'>
+      <p>☕</p>
     </footer>
   );
 }

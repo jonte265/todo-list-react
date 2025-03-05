@@ -6,9 +6,9 @@ function TodoList({ tasks, deleteTask, completeTask }) {
       {tasks.map((task, index) => (
         <div
           key={index}
-          className='flex flex-col gap-4 justify-center items-center items-centertext-2xl p-4 '
+          className='flex flex-col gap-4 justify-center items-center p-4 '
         >
-          <div className='flex justify-center items-center gap-2'>
+          <div className='flex justify-center items-center gap-2 '>
             <input
               onChange={() => completeTask(index)}
               className='w-6 h-6 rounded-full appearance-none border-2 border-gray-400 checked:bg-secondary checked:border-gray-400 focus:outline-none cursor-pointer transition duration-200'
@@ -24,17 +24,12 @@ function TodoList({ tasks, deleteTask, completeTask }) {
           </div>
           <p className='text-gray-500'>{task.date}</p>
 
-          <div className='flex flex-row gap-2'>
-            <button className='bg-primary text-white py-2 px-6 rounded-3xl cursor-pointer '>
-              ✏️ Edit
-            </button>
-            <button
-              onClick={() => deleteTask(index)}
-              className='bg-primary text-white py-2 px-6 rounded-3xl cursor-pointer '
-            >
-              🗑️ Delete
-            </button>
-          </div>
+          <button
+            onClick={() => deleteTask(index)}
+            className='bg-primary text-white py-2 px-6 rounded-3xl cursor-pointer '
+          >
+            🗑️ Delete
+          </button>
         </div>
       ))}
     </div>

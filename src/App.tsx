@@ -15,8 +15,6 @@ function App() {
   }
 
   function completeTask(index) {
-    console.log('done:', index);
-
     // If index match change done: true
     const updatedCompleteTasks = tasks.map((task, i) => {
       if (i === index) {

@@ -7,7 +7,7 @@ function Home({ tasks, addTask, deleteTask, completeTask }) {
   return (
     <>
       <Header />
-      <main className=' p-4 bg-background py-40'>
+      <main className=' p-4 bg-background py-20'>
         <TodoForm addTask={addTask} tasks={tasks} />
         <TodoList
           deleteTask={deleteTask}
