@@ -8,16 +8,16 @@ function App() {
     setTasks([...tasks, newTask]);
   }
 
-  function deleteTask(index) {
-    const updatedTasks = tasks.filter((element, i) => i !== index);
+  function deleteTask(id) {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
 
     setTasks(updatedTasks);
   }
 
-  function completeTask(index) {
-    // If index match change done: true
-    const updatedCompleteTasks = tasks.map((task, i) => {
-      if (i === index) {
+  function completeTask(id) {
+    // If index match change done to true
+    const updatedCompleteTasks = tasks.map((task) => {
+      if (task.id === id) {
         if (task.done === false) {
           return { ...task, done: true };
         } else {
@@ -28,7 +28,12 @@ function App() {
       }
     });
 
-    setTasks(updatedCompleteTasks);
+    console.log(updatedCompleteTasks);
+
+    const sortedTasks = updatedCompleteTasks.sort((a, b) => a.done - b.done);
+    console.log(sortedTasks);
+
+    setTasks(sortedTasks);
   }
 
   return (
