@@ -1,6 +1,4 @@
 function TodoList({ tasks, deleteTask, completeTask }) {
-  console.log('yoo:', tasks);
-
   return (
     <div className='flex flex-col justify-center items-center max-w-3xl m-auto'>
       {/* {Render task NOT done:} */}
