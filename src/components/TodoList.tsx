@@ -36,7 +36,7 @@ function TodoList({ tasks, deleteTask, completeTask }) {
       <hr className='m-auto w-3xl my-8 border-gray-300' />
       <p className='flex justify-center opacity-50 mt-4'>
         {tasks.filter((task) => task.done).length > 0 ? (
-          <>Tasks completed: {tasks.filter((task) => task.done).length}</>
+          <>Completed: {tasks.filter((task) => task.done).length}</>
         ) : null}
       </p>
 

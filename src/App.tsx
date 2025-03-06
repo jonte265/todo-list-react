@@ -1,17 +1,36 @@
 import Home from './pages/Home';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  function saveLocalStorage(tasks) {
+    localStorage.setItem('todo-list', JSON.stringify(tasks));
+  }
+
+  function loadLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('todo-list'));
+    return data ? data : [];
+  }
+
+  useEffect(() => {
+    console.log('First time load localstorage');
+    setTasks(loadLocalStorage());
+  }, []);
+
   function addTask(newTask) {
-    setTasks([...tasks, newTask]);
+    saveLocalStorage([...tasks, newTask]);
+
+    const data = loadLocalStorage();
+    setTasks(data);
   }
 
   function deleteTask(id) {
     const updatedTasks = tasks.filter((task) => task.id !== id);
 
-    setTasks(updatedTasks);
+    saveLocalStorage(updatedTasks);
+    const data = loadLocalStorage();
+    setTasks(data);
   }
 
   function completeTask(id) {
@@ -28,7 +47,9 @@ function App() {
       }
     });
 
-    setTasks(updatedCompleteTasks);
+    saveLocalStorage(updatedCompleteTasks);
+    const data = loadLocalStorage();
+    setTasks(data);
   }
 
   return (
