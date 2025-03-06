@@ -3,36 +3,70 @@ function TodoList({ tasks, deleteTask, completeTask }) {
 
   return (
     <div>
-      {tasks.map((task, index) => (
-        <div
-          key={task.id}
-          className='flex flex-col gap-4 justify-center items-center p-4 '
-        >
-          <div className='flex justify-center items-center gap-2 '>
-            <input
-              onChange={() => completeTask(task.id)}
-              className='w-6 h-6 rounded-full appearance-none border-2 border-gray-400 checked:bg-secondary checked:border-gray-400 focus:outline-none cursor-pointer transition duration-200'
-              type='checkbox'
-            />
-            <h3>{task.id}</h3>
-            <h2
-              className={`text-xl ${
-                task.done ? 'line-through text-gray-500' : ''
-              }`}
-            >
-              {task.todo}
-            </h2>
-          </div>
-          <p className='text-gray-500'>{task.date}</p>
-
-          <button
-            onClick={() => deleteTask(task.id)}
-            className='bg-primary text-white py-2 px-6 rounded-3xl cursor-pointer '
+      {/* {Render task NOT done:} */}
+      {tasks
+        .filter((task) => !task.done)
+        .map((task, index) => (
+          <div
+            key={task.id}
+            className='flex flex-col gap-4 justify- items-center p-4 '
           >
-            🗑️ Delete
-          </button>
-        </div>
-      ))}
+            <div className='flex justify-center items-center gap-4 '>
+              <input
+                onChange={() => completeTask(task.id)}
+                checked={task.done}
+                className='w-6 h-6 rounded-full appearance-none border-2 border-gray-400 checked:bg-secondary checked:border-gray-400 focus:outline-none cursor-pointer transition duration-200'
+                type='checkbox'
+              />
+
+              <h2 className='text-xl '>{task.todo}</h2>
+            </div>
+            <div className='flex justify-center items-center gap-4'>
+              <p className='text-gray-500'>{task.date}</p>
+              <button
+                onClick={() => deleteTask(task.id)}
+                className='bg-black text-white py-1 px-4 rounded-3xl cursor-pointer'
+              >
+                🗑️ Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      {/* {Render task done:} */}
+      <hr className='m-auto w-3xl my-8 border-gray-300' />
+      {tasks
+        .filter((task) => task.done)
+        .map((task, index) => (
+          <div
+            key={task.id}
+            className='flex flex-col gap-4 justify-center items-center p-4 '
+          >
+            <div className='flex justify-center items-center gap-4 '>
+              <input
+                onChange={() => completeTask(task.id)}
+                checked={task.done}
+                className='w-6 h-6 rounded-full appearance-none border-2 border-gray-400 checked:bg-secondary checked:border-gray-400 focus:outline-none cursor-pointer transition duration-200'
+                type='checkbox'
+              />
+
+              <h2
+                className='text-xl line-through text-gray-500
+'
+              >
+                {task.todo}
+              </h2>
+            </div>
+            <div className='flex justify-center items-center gap-4'>
+              <p className='text-gray-500'>{task.date}</p>
+              <button
+                onClick={() => deleteTask(task.id)}
+                className='bg-black text-white py-1 px-4 rounded-3xl cursor-pointer'
+              >
+                🗑️ Delete
+              </button>
+            </div>
+          </div>
+        ))}
     </div>
   );
 }

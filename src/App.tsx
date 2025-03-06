@@ -28,12 +28,7 @@ function App() {
       }
     });
 
-    console.log(updatedCompleteTasks);
-
-    const sortedTasks = updatedCompleteTasks.sort((a, b) => a.done - b.done);
-    console.log(sortedTasks);
-
-    setTasks(sortedTasks);
+    setTasks(updatedCompleteTasks);
   }
 
   return (
