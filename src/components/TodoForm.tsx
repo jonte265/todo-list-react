@@ -61,13 +61,9 @@ function TodoForm({ addTask, tasks }) {
           </form>
         </div>
 
-        {tasks.length === 0 ? (
-          <p className='flex justify-center opacity-50 mt-4'>No tasks...</p>
-        ) : (
-          <p className='flex justify-center opacity-50 mt-4'>
-            Tasks: {tasks.length}
-          </p>
-        )}
+        <p className='flex justify-center opacity-50 mt-4'>
+          Tasks: {tasks.filter((task) => !task.done).length}
+        </p>
       </div>
     </>
   );
