@@ -40,9 +40,14 @@ function TodoList({ tasks, deleteTask, completeTask }: TodoListProps) {
               <p className='text-gray-500'>{task.date}</p>
               <button
                 onClick={() => deleteTask(task.id)}
-                className='bg-black text-white py-1 px-4 rounded-3xl cursor-pointer'
+                className='bg-black text-white p-2 rounded-3xl cursor-pointer flex justify-center items-center'
               >
-                🗑️ Delete
+                <span
+                  className='material-icons icon-size'
+                  style={{ fontSize: '16px' }}
+                >
+                  delete
+                </span>
               </button>
             </div>
           </div>
@@ -82,9 +87,14 @@ function TodoList({ tasks, deleteTask, completeTask }: TodoListProps) {
               <p className='text-gray-500'>{task.date}</p>
               <button
                 onClick={() => deleteTask(task.id)}
-                className='bg-black text-white py-1 px-4 rounded-3xl cursor-pointer'
+                className='bg-black text-white p-2 rounded-3xl cursor-pointer flex justify-center items-center'
               >
-                <span className='material-icons'>delete</span> 🗑️ Delete
+                <span
+                  className='material-icons icon-size'
+                  style={{ fontSize: '16px' }}
+                >
+                  delete
+                </span>
               </button>
             </div>
           </div>
