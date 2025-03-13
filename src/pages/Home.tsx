@@ -20,7 +20,7 @@ function Home({ tasks, addTask, deleteTask, completeTask }: HomeProps) {
   return (
     <>
       <Header />
-      <main className=' p-4 bg-background '>
+      <main className=' p-4 bg-background flex items-center justify-center flex-col flex-wrap gap-4 '>
         <TodoForm addTask={addTask} tasks={tasks} />
         <TodoList
           deleteTask={deleteTask}

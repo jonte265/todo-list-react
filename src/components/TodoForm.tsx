@@ -61,9 +61,12 @@ function TodoForm({ addTask, tasks }: TodoFormProps) {
             />
             <button
               type='submit'
-              className='bg-secondary py-4 px-8 rounded-4xl cursor-pointer ml-2 hover:opacity-80 hover:scale-105 active:opacity-60 active:scale-95 transition-all duration-75'
+              className='bg-secondary py-4 px-8 rounded-4xl cursor-pointer ml-2 hover:opacity-80 hover:scale-105 active:opacity-60 active:scale-95 transition-all duration-75 flex justify-center items-center gap-1'
             >
-              ➕ Add task
+              <span className='material-icons' style={{ fontSize: '16px' }}>
+                add_circle
+              </span>{' '}
+              Add Task
             </button>
           </form>
         </div>
