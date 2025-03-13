@@ -1,16 +1,23 @@
 import Home from './pages/Home';
 import { useEffect, useState } from 'react';
 
-function App() {
-  const [tasks, setTasks] = useState([]);
+type TasksProps = {
+  todo: string;
+  date: string;
+  done: boolean;
+  id: number;
+};
 
-  function saveLocalStorage(tasks) {
+function App() {
+  const [tasks, setTasks] = useState<TasksProps[]>([]);
+
+  function saveLocalStorage(tasks: TasksProps[]) {
     localStorage.setItem('todo-list', JSON.stringify(tasks));
   }
 
   function loadLocalStorage() {
-    const data = JSON.parse(localStorage.getItem('todo-list'));
-    return data ? data : [];
+    const data = localStorage.getItem('todo-list');
+    return data ? JSON.parse(data) : [];
   }
 
   useEffect(() => {
@@ -18,14 +25,14 @@ function App() {
     setTasks(loadLocalStorage());
   }, []);
 
-  function addTask(newTask) {
+  function addTask(newTask: TasksProps) {
     saveLocalStorage([...tasks, newTask]);
 
     const data = loadLocalStorage();
     setTasks(data);
   }
 
-  function deleteTask(id) {
+  function deleteTask(id: number) {
     const updatedTasks = tasks.filter((task) => task.id !== id);
 
     saveLocalStorage(updatedTasks);
@@ -33,7 +40,7 @@ function App() {
     setTasks(data);
   }
 
-  function completeTask(id) {
+  function completeTask(id: number) {
     // If index match change done to true
     const updatedCompleteTasks = tasks.map((task) => {
       if (task.id === id) {
