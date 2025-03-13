@@ -1,10 +1,22 @@
-function TodoList({ tasks, deleteTask, completeTask }) {
+import {
+  TasksProps,
+  DeleteTaskFunction,
+  CompleteTaskFunction,
+} from '../types/types';
+
+type TodoListProps = {
+  tasks: TasksProps[];
+  deleteTask: DeleteTaskFunction;
+  completeTask: CompleteTaskFunction;
+};
+
+function TodoList({ tasks, deleteTask, completeTask }: TodoListProps) {
   return (
     <div className='flex flex-col justify-center items-center max-w-3xl m-auto'>
       {/* {Render task NOT done:} */}
       {tasks
         .filter((task) => !task.done)
-        .map((task, index) => (
+        .map((task) => (
           <div
             key={task.id}
             className='flex flex-col gap-4 justify-center items-center p-4 '
@@ -44,7 +56,7 @@ function TodoList({ tasks, deleteTask, completeTask }) {
       {/* {Render task done:} */}
       {tasks
         .filter((task) => task.done)
-        .map((task, index) => (
+        .map((task) => (
           <div
             key={task.id}
             className='flex flex-col gap-4 justify-center items-center p-4 '

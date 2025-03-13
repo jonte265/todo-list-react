@@ -1,18 +1,25 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-function TodoForm({ addTask, tasks }) {
+import { TasksProps, AddTaskFunction } from '../types/types';
+
+type TodoFormProps = {
+  tasks: TasksProps[];
+  addTask: AddTaskFunction;
+};
+
+function TodoForm({ addTask, tasks }: TodoFormProps) {
   const [newTask, setNewTask] = useState('');
   const [newDate, setNewDate] = useState('');
 
-  function handleInput(event) {
+  function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
   }
 
-  function handleDate(event) {
+  function handleDate(event: React.ChangeEvent<HTMLInputElement>) {
     setNewDate(event.target.value);
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const newTodoTask = {

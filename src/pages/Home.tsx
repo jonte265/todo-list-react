@@ -2,8 +2,21 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
+import {
+  TasksProps,
+  AddTaskFunction,
+  DeleteTaskFunction,
+  CompleteTaskFunction,
+} from '../types/types';
 
-function Home({ tasks, addTask, deleteTask, completeTask }) {
+type HomeProps = {
+  tasks: TasksProps[];
+  addTask: AddTaskFunction;
+  deleteTask: DeleteTaskFunction;
+  completeTask: CompleteTaskFunction;
+};
+
+function Home({ tasks, addTask, deleteTask, completeTask }: HomeProps) {
   return (
     <>
       <Header />

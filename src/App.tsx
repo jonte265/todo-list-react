@@ -1,12 +1,6 @@
 import Home from './pages/Home';
 import { useEffect, useState } from 'react';
-
-type TasksProps = {
-  todo: string;
-  date: string;
-  done: boolean;
-  id: number;
-};
+import { TasksProps } from './types/types';
 
 function App() {
   const [tasks, setTasks] = useState<TasksProps[]>([]);
