@@ -13,15 +13,15 @@ type TodoListProps = {
 function TodoList({ tasks, deleteTask, completeTask }: TodoListProps) {
   return (
     <div className='flex flex-col justify-center items-center max-w-3xl m-auto'>
-      {/* {Render task NOT done:} */}
+      {/* Render tasks that are NOT done */}
       {tasks
         .filter((task) => !task.done)
         .map((task) => (
           <div
             key={task.id}
-            className='flex flex-col gap-4 justify-center items-center p-4 '
+            className='flex flex-col gap-4 justify-center items-start p-4 w-full'
           >
-            <div className='flex justify-center items-center gap-4  '>
+            <div className='flex items-start gap-4 w-full'>
               <label className='relative flex items-center cursor-pointer'>
                 <input
                   type='checkbox'
@@ -32,9 +32,11 @@ function TodoList({ tasks, deleteTask, completeTask }: TodoListProps) {
                 <div className='w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-gray-400 transition duration-200'></div>
               </label>
 
-              <h2 className='text-xl break-all w-full'>{task.todo}</h2>
+              <h2 className='text-xl break-all text-left w-full'>
+                {task.todo}
+              </h2>
             </div>
-            <div className='flex justify-center items-center gap-4'>
+            <div className='flex items-center gap-4'>
               <p className='text-gray-500'>{task.date}</p>
               <button
                 onClick={() => deleteTask(task.id)}
@@ -53,15 +55,15 @@ function TodoList({ tasks, deleteTask, completeTask }: TodoListProps) {
         ) : null}
       </p>
 
-      {/* {Render task done:} */}
+      {/* Render tasks that are done */}
       {tasks
         .filter((task) => task.done)
         .map((task) => (
           <div
             key={task.id}
-            className='flex flex-col gap-4 justify-center items-center p-4 '
+            className='flex flex-col gap-4 justify-center items-start p-4 w-full'
           >
-            <div className='flex justify-center items-center gap-4 '>
+            <div className='flex items-start gap-4 w-full'>
               <label className='relative flex items-center cursor-pointer'>
                 <input
                   type='checkbox'
@@ -72,17 +74,17 @@ function TodoList({ tasks, deleteTask, completeTask }: TodoListProps) {
                 <div className='w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-gray-400 transition duration-200'></div>
               </label>
 
-              <h2 className='text-xl line-through text-gray-500 break-all w-full'>
+              <h2 className='text-xl line-through text-gray-500 break-all text-left w-full'>
                 {task.todo}
               </h2>
             </div>
-            <div className='flex justify-center items-center gap-4'>
+            <div className='flex items-center gap-4'>
               <p className='text-gray-500'>{task.date}</p>
               <button
                 onClick={() => deleteTask(task.id)}
                 className='bg-black text-white py-1 px-4 rounded-3xl cursor-pointer'
               >
-                🗑️ Delete
+                <span className='material-icons'>delete</span> 🗑️ Delete
               </button>
             </div>
           </div>
@@ -90,4 +92,5 @@ function TodoList({ tasks, deleteTask, completeTask }: TodoListProps) {
     </div>
   );
 }
+
 export default TodoList;
