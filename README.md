@@ -2,6 +2,10 @@
 
 A simple clean To-Do application built with React, TypeScript, and Vite. This app allows users to manage tasks that saves them in local storage.
 
+## Live Demo
+Check out live version here:
+https://todoreactapp35.netlify.app/
+
 ## Features
 
 - Add new tasks with a date
