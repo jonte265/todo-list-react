@@ -7,6 +7,8 @@ import {
   AddTaskFunction,
   DeleteTaskFunction,
   CompleteTaskFunction,
+  EditTaskFunction,
+  EditModeFunction,
 } from '../types/types';
 
 type HomeProps = {
@@ -14,9 +16,20 @@ type HomeProps = {
   addTask: AddTaskFunction;
   deleteTask: DeleteTaskFunction;
   completeTask: CompleteTaskFunction;
+  editTask: EditTaskFunction;
+  editMode: EditModeFunction;
 };
 
-function Home({ tasks, addTask, deleteTask, completeTask }: HomeProps) {
+function Home({
+  tasks,
+  addTask,
+  deleteTask,
+  completeTask,
+  editTask,
+  editMode,
+  editText,
+  setEditText,
+}: HomeProps) {
   return (
     <>
       <Header />
@@ -26,6 +39,10 @@ function Home({ tasks, addTask, deleteTask, completeTask }: HomeProps) {
           deleteTask={deleteTask}
           completeTask={completeTask}
           tasks={tasks}
+          editTask={editTask}
+          editMode={editMode}
+          editText={editText}
+          setEditText={setEditText}
         />
       </main>
       <Footer />

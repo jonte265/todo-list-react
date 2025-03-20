@@ -26,6 +26,7 @@ function TodoForm({ addTask, tasks }: TodoFormProps) {
       todo: newTask,
       date: newDate,
       done: false,
+      edit: false,
       id: Date.now(),
     };
 

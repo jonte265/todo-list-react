@@ -5,6 +5,8 @@ import { TasksProps } from './types/types';
 function App() {
   const [tasks, setTasks] = useState<TasksProps[]>([]);
 
+  const [editText, setEditText] = useState('');
+
   function saveLocalStorage(tasks: TasksProps[]) {
     localStorage.setItem('todo-list', JSON.stringify(tasks));
   }
@@ -53,6 +55,41 @@ function App() {
     setTasks(data);
   }
 
+  function editMode(id: number) {
+    const updatedCompleteTasks = tasks.map((task) => {
+      if (task.id === id) {
+        if (task.edit === false) {
+          setEditText(task.todo);
+          return { ...task, edit: true };
+        } else {
+          return { ...task, edit: false };
+        }
+      } else {
+        return task;
+      }
+    });
+
+    saveLocalStorage(updatedCompleteTasks);
+    const data = loadLocalStorage();
+    setTasks(data);
+  }
+
+  function editTask(id: number, updateText: string) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, todo: updateText, edit: false };
+      }
+      return task;
+    });
+
+    console.log(updatedTasks);
+    console.log(updateText);
+
+    saveLocalStorage(updatedTasks);
+
+    setTasks(updatedTasks);
+  }
+
   return (
     <>
       <Home
@@ -60,6 +97,10 @@ function App() {
         addTask={addTask}
         deleteTask={deleteTask}
         completeTask={completeTask}
+        editTask={editTask}
+        editMode={editMode}
+        editText={editText}
+        setEditText={setEditText}
       />
     </>
   );
