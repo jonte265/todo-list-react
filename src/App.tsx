@@ -65,7 +65,7 @@ function App() {
           return { ...task, edit: false };
         }
       } else {
-        return task;
+        return { ...task, edit: false };
       }
     });
 
@@ -86,7 +86,6 @@ function App() {
     console.log(updateText);
 
     saveLocalStorage(updatedTasks);
-
     setTasks(updatedTasks);
   }
 
