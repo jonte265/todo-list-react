@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Header() {
   const [darkMode, setDarkMode] = useState(false);
 
   function handleDarkMode() {
-    darkMode ? setDarkMode(false) : setDarkMode(true);
+    darkMode
+      ? (setDarkMode(false), localStorage.setItem('darkLightMode', 'false'))
+      : (setDarkMode(true), localStorage.setItem('darkLightMode', 'true'));
+
     document.body.classList.toggle('dark');
   }
+
+  useEffect(() => {
+    localStorage.getItem('darkLightMode') === 'true'
+      ? (setDarkMode(true), document.body.classList.add('dark'))
+      : (setDarkMode(false), document.body.classList.remove('dark'));
+  }, []);
 
   return (
     <nav className='bg-background dark:bg-background-dark p-4 flex justify-center gap-8 items-center '>
