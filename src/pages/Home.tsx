@@ -35,7 +35,7 @@ function Home({
   return (
     <>
       <Header />
-      <main className=' p-4 bg-background flex items-center justify-center flex-col flex-wrap gap-4 '>
+      <main className=' p-4 bg-background flex items-center justify-center flex-col flex-wrap '>
         <TodoForm addTask={addTask} tasks={tasks} />
         <TodoList
           deleteTask={deleteTask}
