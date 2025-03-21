@@ -18,6 +18,8 @@ type HomeProps = {
   completeTask: CompleteTaskFunction;
   editTask: EditTaskFunction;
   editMode: EditModeFunction;
+  editText: string;
+  setEditText: React.Dispatch<React.SetStateAction<string>>;
 };
 
 function Home({

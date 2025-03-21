@@ -82,9 +82,6 @@ function App() {
       return task;
     });
 
-    console.log(updatedTasks);
-    console.log(updateText);
-
     saveLocalStorage(updatedTasks);
     setTasks(updatedTasks);
   }

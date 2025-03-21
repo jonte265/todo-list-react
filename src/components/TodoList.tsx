@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import {
   TasksProps,
   DeleteTaskFunction,
   CompleteTaskFunction,
   EditTaskFunction,
+  EditModeFunction,
 } from '../types/types';
 
 type TodoListProps = {
@@ -11,6 +11,9 @@ type TodoListProps = {
   deleteTask: DeleteTaskFunction;
   completeTask: CompleteTaskFunction;
   editTask: EditTaskFunction;
+  editMode: EditModeFunction;
+  editText: string;
+  setEditText: React.Dispatch<React.SetStateAction<string>>;
 };
 
 function TodoList({
@@ -22,9 +25,6 @@ function TodoList({
   editText,
   setEditText,
 }: TodoListProps) {
-  // const [editMode, setEditMode] = useState(false);
-  // const [editText, setEditText] = useState('');
-
   function handleEditInput(event: React.ChangeEvent<HTMLInputElement>) {
     setEditText(event.target.value);
   }
