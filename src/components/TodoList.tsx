@@ -89,20 +89,21 @@ function TodoList({
               </div>
               <div className='flex items-center gap-4'>
                 <p className='text-gray-500'>{task.date}</p>
-                <button
-                  onClick={() => deleteTask(task.id)}
-                  className=' text-text  cursor-pointer flex justify-center items-center'
-                >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
-                    delete_forever
-                  </span>
-                </button>
+
                 <button
                   onClick={() => editMode(task.id)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span className='material-icons' style={{ fontSize: '16px' }}>
                     edit
+                  </span>
+                </button>
+                <button
+                  onClick={() => deleteTask(task.id)}
+                  className=' text-text  cursor-pointer flex justify-center items-center'
+                >
+                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                    delete_forever
                   </span>
                 </button>
               </div>
@@ -120,39 +121,83 @@ function TodoList({
       {/* Render tasks that are done */}
       {tasks
         .filter((task) => task.done)
-        .map((task) => (
-          <div
-            key={task.id}
-            className='flex flex-col gap-4 justify-center items-start p-4 w-full'
-          >
-            <div className='flex items-start gap-4 w-full'>
-              <label className='relative flex items-center cursor-pointer'>
+        .map((task) =>
+          task.edit ? (
+            <div
+              key={task.id}
+              className='flex flex-col gap-4 justify-center items-start p-4 w-full'
+            >
+              <div className='flex items-start gap-4 w-full'>
                 <input
-                  type='checkbox'
-                  onChange={() => completeTask(task.id)}
-                  checked={task.done}
-                  className='peer hidden'
+                  className='bg-background rounded-4xl shadow p-4 transition-all duration-75'
+                  type='text'
+                  value={editText}
+                  onChange={handleEditInput}
+                  required
                 />
-                <div className='w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-gray-400 transition duration-200'></div>
-              </label>
+              </div>
+              <div className='flex items-center gap-4'>
+                <button
+                  onClick={() => editTask(task.id, editText)}
+                  className=' text-text  cursor-pointer flex justify-center items-center'
+                >
+                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                    check
+                  </span>
+                </button>
+                <button
+                  onClick={() => editMode(task.id)}
+                  className=' text-text  cursor-pointer flex justify-center items-center'
+                >
+                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                    close
+                  </span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div
+              key={task.id}
+              className='flex flex-col gap-4 justify-center items-start p-4 w-full'
+            >
+              <div className='flex items-start gap-4 w-full'>
+                <label className='relative flex items-center cursor-pointer'>
+                  <input
+                    type='checkbox'
+                    onChange={() => completeTask(task.id)}
+                    checked={task.done}
+                    className='peer hidden'
+                  />
+                  <div className='w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-gray-400 transition duration-200'></div>
+                </label>
 
-              <h2 className='text-xl line-through text-gray-500 break-all text-left w-full'>
-                {task.todo}
-              </h2>
+                <h2 className='text-xl line-through text-gray-500 break-all text-left w-full'>
+                  {task.todo}
+                </h2>
+              </div>
+              <div className='flex items-center gap-4'>
+                <p className='text-gray-500'>{task.date}</p>
+
+                <button
+                  onClick={() => editMode(task.id)}
+                  className=' text-text  cursor-pointer flex justify-center items-center'
+                >
+                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                    edit
+                  </span>
+                </button>
+                <button
+                  onClick={() => deleteTask(task.id)}
+                  className=' text-text  cursor-pointer flex justify-center items-center'
+                >
+                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                    delete_forever
+                  </span>
+                </button>
+              </div>
             </div>
-            <div className='flex items-center gap-4'>
-              <p className='text-gray-500'>{task.date}</p>
-              <button
-                onClick={() => deleteTask(task.id)}
-                className=' text-text  cursor-pointer flex justify-center items-center'
-              >
-                <span className='material-icons' style={{ fontSize: '16px' }}>
-                  delete_forever
-                </span>
-              </button>
-            </div>
-          </div>
-        ))}
+          )
+        )}
     </div>
   );
 }
