@@ -53,7 +53,10 @@ function TodoList({
                   onClick={() => editTask(task.id, editText)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                  <span
+                    className='material-icons dark:text-text-dark'
+                    style={{ fontSize: '16px' }}
+                  >
                     check
                   </span>
                 </button>
@@ -61,7 +64,10 @@ function TodoList({
                   onClick={() => editMode(task.id)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                  <span
+                    className='material-icons dark:text-text-dark'
+                    style={{ fontSize: '16px' }}
+                  >
                     close
                   </span>
                 </button>
@@ -83,18 +89,21 @@ function TodoList({
                   <div className='w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-gray-400 transition duration-200'></div>
                 </label>
 
-                <h2 className='text-xl break-all text-left w-full'>
+                <h2 className='text-xl break-all text-left w-full dark:text-text-dark'>
                   {task.todo}
                 </h2>
               </div>
-              <div className='flex items-center gap-4'>
-                <p className='text-gray-500'>{task.date}</p>
+              <div className='flex items-center gap-4 '>
+                <p className='text-gray-500 '>{task.date}</p>
 
                 <button
                   onClick={() => editMode(task.id)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                  <span
+                    className='material-icons dark:text-text-dark'
+                    style={{ fontSize: '16px' }}
+                  >
                     edit
                   </span>
                 </button>
@@ -102,7 +111,10 @@ function TodoList({
                   onClick={() => deleteTask(task.id)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                  <span
+                    className='material-icons dark:text-text-dark'
+                    style={{ fontSize: '16px' }}
+                  >
                     delete_forever
                   </span>
                 </button>
@@ -112,7 +124,7 @@ function TodoList({
         )}
 
       <hr className='w-full max-w-3xl m-auto my-8 border-gray-300' />
-      <p className='flex justify-center opacity-50 my-4'>
+      <p className='flex justify-center opacity-50 dark:text-text-dark my-4'>
         {tasks.filter((task) => task.done).length > 0 ? (
           <>Completed: {tasks.filter((task) => task.done).length}</>
         ) : null}
@@ -141,7 +153,10 @@ function TodoList({
                   onClick={() => editTask(task.id, editText)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                  <span
+                    className='material-icons dark:text-text-dark'
+                    style={{ fontSize: '16px' }}
+                  >
                     check
                   </span>
                 </button>
@@ -149,7 +164,10 @@ function TodoList({
                   onClick={() => editMode(task.id)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                  <span
+                    className='material-icons dark:text-text-dark'
+                    style={{ fontSize: '16px' }}
+                  >
                     close
                   </span>
                 </button>
@@ -171,7 +189,7 @@ function TodoList({
                   <div className='w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-gray-400 transition duration-200'></div>
                 </label>
 
-                <h2 className='text-xl line-through text-gray-500 break-all text-left w-full'>
+                <h2 className='text-xl line-through opacity-50 dark:text-text-dark break-all text-left w-full'>
                   {task.todo}
                 </h2>
               </div>
@@ -182,7 +200,10 @@ function TodoList({
                   onClick={() => editMode(task.id)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                  <span
+                    className='material-icons dark:text-text-dark'
+                    style={{ fontSize: '16px' }}
+                  >
                     edit
                   </span>
                 </button>
@@ -190,7 +211,10 @@ function TodoList({
                   onClick={() => deleteTask(task.id)}
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
-                  <span className='material-icons' style={{ fontSize: '16px' }}>
+                  <span
+                    className='material-icons dark:text-text-dark'
+                    style={{ fontSize: '16px' }}
+                  >
                     delete_forever
                   </span>
                 </button>
