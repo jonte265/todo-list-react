@@ -7,7 +7,7 @@ type TodoFormProps = {
   addTask: AddTaskFunction;
 };
 
-function TodoForm({ addTask, tasks }: TodoFormProps) {
+function TodoForm({ addTask }: TodoFormProps) {
   const [newTask, setNewTask] = useState('');
   const [newDate, setNewDate] = useState('');
 
