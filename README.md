@@ -29,11 +29,11 @@ https://todoreactapp35.netlify.app/
 
 ## Usage
 
-Open the website in your browser
-Add tasks using the input field and set a date
-Click on a task to mark it complete/incomplete
-To edit a task, click on the pen edit icon and modify it.
-Use the delete button to remove tasks
+- Open the website in your browser
+- Add tasks using the input field and set a date
+- Click on a task to mark it complete/incomplete
+- To edit a task, click on the pen edit icon and modify it.
+- Use the delete button to remove tasks
 
 ## Technologies Used
 
