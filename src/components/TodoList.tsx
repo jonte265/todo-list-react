@@ -78,7 +78,7 @@ function TodoList({
               key={task.id}
               className='flex flex-col gap-4 justify-center items-start p-4 w-full'
             >
-              <div className='flex items-start gap-4 w-full'>
+              <div className='flex items-center justify-center gap-4 w-full'>
                 <label className='relative flex items-center cursor-pointer'>
                   <input
                     type='checkbox'
@@ -86,7 +86,7 @@ function TodoList({
                     checked={task.done}
                     className='peer hidden'
                   />
-                  <div className='w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-gray-400 transition duration-200'></div>
+                  <div className='w-5 h-5 border-2 border-text-muted dark:border-text-muted-dark rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-text-muted dark:peer-checked:border-b-text-muted-dark transition duration-200'></div>
                 </label>
 
                 <h2 className='text-xl break-all text-left w-full dark:text-text-dark'>
@@ -94,7 +94,9 @@ function TodoList({
                 </h2>
               </div>
               <div className='flex items-center gap-4 '>
-                <p className='text-gray-500 '>{task.date}</p>
+                <p className='text-text-muted dark:text-text-muted-dark '>
+                  {task.date}
+                </p>
 
                 <button
                   onClick={() => editMode(task.id)}
@@ -124,7 +126,7 @@ function TodoList({
         )}
 
       <hr className='w-full max-w-3xl m-auto my-8 border-gray-300' />
-      <p className='flex justify-center opacity-50 dark:text-text-dark my-4'>
+      <p className='flex justify-center text-text-muted dark:text-text-muted-dark my-4'>
         {tasks.filter((task) => task.done).length > 0 ? (
           <>Completed: {tasks.filter((task) => task.done).length}</>
         ) : null}
@@ -178,7 +180,7 @@ function TodoList({
               key={task.id}
               className='flex flex-col gap-4 justify-center items-start p-4 w-full'
             >
-              <div className='flex items-start gap-4 w-full'>
+              <div className='flex items-center justify-center gap-4 w-full'>
                 <label className='relative flex items-center cursor-pointer'>
                   <input
                     type='checkbox'
@@ -186,15 +188,17 @@ function TodoList({
                     checked={task.done}
                     className='peer hidden'
                   />
-                  <div className='w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-gray-400 transition duration-200'></div>
+                  <div className='w-5 h-5 border-2 border-text-muted dark:border-text-muted-dark rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-text-muted dark:peer-checked:border-b-text-muted-dark transition duration-200'></div>
                 </label>
 
-                <h2 className='text-xl line-through opacity-50 dark:text-text-dark break-all text-left w-full'>
+                <h2 className='text-xl line-through text-text-muted dark:text-text-muted-dark break-all text-left w-full'>
                   {task.todo}
                 </h2>
               </div>
               <div className='flex items-center gap-4'>
-                <p className='text-gray-500'>{task.date}</p>
+                <p className='text-text-muted dark:text-text-muted-dark'>
+                  {task.date}
+                </p>
 
                 <button
                   onClick={() => editMode(task.id)}

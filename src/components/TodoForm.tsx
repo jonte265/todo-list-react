@@ -72,7 +72,7 @@ function TodoForm({ addTask, tasks }: TodoFormProps) {
           </form>
         </div>
 
-        <p className='flex justify-center opacity-50 my-4 dark:text-text-dark'>
+        <p className='flex justify-center text-text-muted my-4 dark:text-text-muted-dark'>
           Tasks: {tasks.filter((task) => !task.done).length}
         </p>
       </div>
