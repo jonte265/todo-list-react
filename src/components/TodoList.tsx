@@ -130,7 +130,7 @@ function TodoList({
           )
         )}
 
-      <hr className='w-full max-w-3xl m-auto my-8 border-gray-300' />
+      <hr className='w-full max-w-3xl m-auto my-8 opacity-50 border-text-muted dark:border-text-muted-dark' />
       <p className='flex justify-center text-text-muted dark:text-text-muted-dark my-4'>
         {tasks.filter((task) => task.done).length > 0 ? (
           <>Completed: {tasks.filter((task) => task.done).length}</>
