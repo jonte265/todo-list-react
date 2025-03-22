@@ -20,9 +20,3 @@
   --color-secondary-dark: #19704c;
   --color-accent-dark: #246d9e;
 }
-
-body {
-  color: var(--color-text);
-  background-color: var(--color-background);
-  transition: background-color 0.5s, color 0.5s;
-}
