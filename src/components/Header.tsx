@@ -8,13 +8,13 @@ function Header() {
       ? (setDarkMode(false), localStorage.setItem('darkLightMode', 'false'))
       : (setDarkMode(true), localStorage.setItem('darkLightMode', 'true'));
 
-    document.body.classList.toggle('dark');
+    document.documentElement.classList.toggle('dark');
   }
 
   useEffect(() => {
     localStorage.getItem('darkLightMode') === 'true'
-      ? (setDarkMode(true), document.body.classList.add('dark'))
-      : (setDarkMode(false), document.body.classList.remove('dark'));
+      ? (setDarkMode(true), document.documentElement.classList.add('dark'))
+      : (setDarkMode(false), document.documentElement.classList.remove('dark'));
   }, []);
 
   return (
