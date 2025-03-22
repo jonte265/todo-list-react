@@ -30,6 +30,11 @@ function TodoList({
   }
   return (
     <div className='flex flex-col justify-center items-center max-w-80 m-auto'>
+      <p className='flex justify-center text-text-muted dark:text-text-muted-dark my-4'>
+        {tasks.filter((task) => !task.done).length > 0 ? (
+          <>Tasks: {tasks.filter((task) => !task.done).length}</>
+        ) : null}
+      </p>
       {/* Render tasks that are NOT done */}
       {tasks
         .filter((task) => !task.done)
@@ -54,7 +59,7 @@ function TodoList({
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span
-                    className='material-icons dark:text-text-dark'
+                    className='material-icons dark:text-text-dark hover:scale-120 active:scale-90 transition-all duration-75'
                     style={{ fontSize: '16px' }}
                   >
                     check
@@ -65,7 +70,7 @@ function TodoList({
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span
-                    className='material-icons dark:text-text-dark'
+                    className='material-icons dark:text-text-dark hover:scale-120 active:scale-90 transition-all duration-75'
                     style={{ fontSize: '16px' }}
                   >
                     close
@@ -103,7 +108,7 @@ function TodoList({
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span
-                    className='material-icons dark:text-text-dark'
+                    className='material-icons dark:text-text-dark hover:scale-120 active:scale-90 transition-all duration-75'
                     style={{ fontSize: '16px' }}
                   >
                     edit
@@ -114,7 +119,7 @@ function TodoList({
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span
-                    className='material-icons dark:text-text-dark'
+                    className='material-icons dark:text-text-dark hover:scale-120 active:scale-90 transition-all duration-75'
                     style={{ fontSize: '16px' }}
                   >
                     delete_forever
@@ -156,7 +161,7 @@ function TodoList({
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span
-                    className='material-icons dark:text-text-dark'
+                    className='material-icons dark:text-text-dark hover:scale-120 active:scale-90 transition-all duration-75'
                     style={{ fontSize: '16px' }}
                   >
                     check
@@ -167,7 +172,7 @@ function TodoList({
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span
-                    className='material-icons dark:text-text-dark'
+                    className='material-icons dark:text-text-dark hover:scale-120 active:scale-90 transition-all duration-75'
                     style={{ fontSize: '16px' }}
                   >
                     close
@@ -205,7 +210,7 @@ function TodoList({
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span
-                    className='material-icons dark:text-text-dark'
+                    className='material-icons dark:text-text-dark hover:scale-120 active:scale-90 transition-all duration-75'
                     style={{ fontSize: '16px' }}
                   >
                     edit
@@ -216,7 +221,7 @@ function TodoList({
                   className=' text-text  cursor-pointer flex justify-center items-center'
                 >
                   <span
-                    className='material-icons dark:text-text-dark'
+                    className='material-icons dark:text-text-dark hover:scale-120 active:scale-90 transition-all duration-75'
                     style={{ fontSize: '16px' }}
                   >
                     delete_forever

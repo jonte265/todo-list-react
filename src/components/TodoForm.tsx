@@ -48,7 +48,7 @@ function TodoForm({ addTask, tasks }: TodoFormProps) {
             <input
               className='bg-background rounded-4xl shadow p-4 w-3xs transition-all duration-75'
               type='text'
-              placeholder='Enter task...'
+              placeholder='Enter task'
               required
               value={newTask}
               onChange={handleInput}
@@ -71,10 +71,6 @@ function TodoForm({ addTask, tasks }: TodoFormProps) {
             </button>
           </form>
         </div>
-
-        <p className='flex justify-center text-text-muted my-4 dark:text-text-muted-dark'>
-          Tasks: {tasks.filter((task) => !task.done).length}
-        </p>
       </div>
     </>
   );
