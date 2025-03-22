@@ -11,13 +11,19 @@ function App() {
     localStorage.setItem('todo-list', JSON.stringify(tasks));
   }
 
-  function loadLocalStorage() {
+  function loadLocalStorage(): TasksProps[] {
     const data = localStorage.getItem('todo-list');
     return data ? JSON.parse(data) : [];
   }
 
   useEffect(() => {
     console.log('First time load localstorage');
+    const loadTasks = loadLocalStorage();
+
+    const resetEditMode = loadTasks.map((task) => ({ ...task, edit: false }));
+
+    saveLocalStorage(resetEditMode);
+
     setTasks(loadLocalStorage());
   }, []);
 
